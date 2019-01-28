@@ -69,11 +69,10 @@ class MagInterface:
             data_angulo = 90
         else:
             data_angulo = math.degrees(np.arccos(data_voltaje/5))
-        data_tiempo = dt.datetime.now().strftime('%H:%M:%S.%f')
+        #data_tiempo = dt.datetime.now().strftime('%H:%M:%S.%f')
         self.data_values.append(str(data_voltaje)) 
         self.data_values.append(str(data_angulo))
-        #self.data_values.append(str(self.counter))
-        self.data.update({data_tiempo: self.data_values})
+        self.data.update({self.counter: self.data_values})
         self.data_values = []
         self.counter =+ 1
         print self.data
@@ -89,10 +88,8 @@ class MagInterface:
             for key, value in self.data.items():
                 v = value[0]
                 a = value[1]
-                #c = value[2]
                 writer.writerow([key, v, a])
-                #writer.writerow([c, v, a])
-
+                
            
 
 if __name__ == '__main__':
