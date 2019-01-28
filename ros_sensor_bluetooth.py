@@ -80,11 +80,11 @@ class MagInterface:
     def savedata(self):
         with open('/home/mariana/Escritorio/spel/ADCS/Python/Sensor/datos.csv', 'a') as outfile:
             writer = csv.writer(outfile)
-            header = {"Tiempo": ["Voltaje", "Angulo"]}
-            for key, value in header.items():
-                v = value[0]
-                a = value[1]
-                writer.writerow([key, v,a])
+            #header = {"Tiempo": ["Voltaje", "Angulo"]}
+            #for key, value in header.items():
+            #    v = value[0]
+            #    a = value[1]
+            #    writer.writerow([key, v,a])
             for key, value in self.data.items():
                 v = value[0]
                 a = value[1]
