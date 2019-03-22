@@ -20,7 +20,7 @@ class MagInterface:
         self.bt_receiver = btReceiver(debug = True)
         self.data = {}
         self.data_values = []
-        self.counter = 1
+        self.counter = 0
 
     def initialize(self):
         # Get params and allocate msgs
@@ -70,11 +70,11 @@ class MagInterface:
         else:
             data_angulo = math.degrees(np.arccos(data_voltaje/5))
         #data_tiempo = dt.datetime.now().strftime('%H:%M:%S.%f')
+        self.counter =+ 1
         self.data_values.append(str(data_voltaje)) 
         self.data_values.append(str(data_angulo))
         self.data.update({self.counter: self.data_values})
         self.data_values = []
-        self.counter =+ 1
         print self.data
 
     def savedata(self):
